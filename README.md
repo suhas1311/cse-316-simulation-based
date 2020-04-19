@@ -1,0 +1,2 @@
+# cse-316-simulation-based
+ten students(a,b,c,d,e,f,g,h,i,j)are going to attend an event.there are lots of gift shops, they all are going to the gift shops and randomly picking the gifts. after picking the gifts they are randomly arriving in the billing counter . the accountant gives the preference to that student who has maximum number of gifts. create a c or java program   to define order of billed students
