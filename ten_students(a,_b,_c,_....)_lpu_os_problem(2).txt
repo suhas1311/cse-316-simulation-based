@@ -1,0 +1,61 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+struct student{
+	char name;
+	int gifts;
+}students[10];
+
+void initialize(){
+	srand(time(0));
+        for(int i = 0; i < 10; i++){
+                students[i].name = 'A' + i;
+                students[i].gifts = rand() % 10;
+        }
+}
+
+void sort_stud(){
+	for(int i = 0; i < 10; i++){
+		for(int j = i + 1; j < 10; j++){
+			if(students[i].gifts < students[j].gifts){
+				struct student tmp;
+				tmp.name = students[i].name;
+				tmp.gifts = students[i].gifts;
+				students[i].name = students[j].name;
+				students[i].gifts = students[j].gifts;
+				students[j].name = tmp.name;
+				students[j].gifts = tmp.gifts;
+			}
+		}
+	}
+}
+
+void stud_gift_info(){
+	for(int i = 0; i < 10; i++){
+                printf("----");
+        }
+	printf("\n");
+	for(int i = 0; i < 10; i++){
+		printf("%c | ", students[i].name);
+	}
+	printf("\n");
+	for(int i = 0; i < 10; i++){
+		printf("%d | ", students[i].gifts);
+	}
+	printf("\n");
+	for(int i = 0; i < 10; i++){
+                printf("----");
+        }
+	printf("\n");
+}
+
+int main(){
+	initialize();
+	printf("Students and the number of gifts they have.\n");
+	stud_gift_info();
+	sort_stud();
+	printf("The order in which the billing happens.\n");
+	stud_gift_info();
+	return 0;
+}
